@@ -1,0 +1,13 @@
+F:\Projekty wlasne\GitLab\MKProject\SQLBuilderConsoleTest\SQLBuilderConsoleTest\bin\Debug\netcoreapp3.1\SQLBuilderConsoleTest.exe
+F:\Projekty wlasne\GitLab\MKProject\SQLBuilderConsoleTest\SQLBuilderConsoleTest\bin\Debug\netcoreapp3.1\SQLBuilderConsoleTest.deps.json
+F:\Projekty wlasne\GitLab\MKProject\SQLBuilderConsoleTest\SQLBuilderConsoleTest\bin\Debug\netcoreapp3.1\SQLBuilderConsoleTest.runtimeconfig.json
+F:\Projekty wlasne\GitLab\MKProject\SQLBuilderConsoleTest\SQLBuilderConsoleTest\bin\Debug\netcoreapp3.1\SQLBuilderConsoleTest.runtimeconfig.dev.json
+F:\Projekty wlasne\GitLab\MKProject\SQLBuilderConsoleTest\SQLBuilderConsoleTest\bin\Debug\netcoreapp3.1\SQLBuilderConsoleTest.dll
+F:\Projekty wlasne\GitLab\MKProject\SQLBuilderConsoleTest\SQLBuilderConsoleTest\bin\Debug\netcoreapp3.1\SQLBuilderConsoleTest.pdb
+F:\Projekty wlasne\GitLab\MKProject\SQLBuilderConsoleTest\SQLBuilderConsoleTest\obj\Debug\netcoreapp3.1\SQLBuilderConsoleTest.csprojAssemblyReference.cache
+F:\Projekty wlasne\GitLab\MKProject\SQLBuilderConsoleTest\SQLBuilderConsoleTest\obj\Debug\netcoreapp3.1\SQLBuilderConsoleTest.csproj.CoreCompileInputs.cache
+F:\Projekty wlasne\GitLab\MKProject\SQLBuilderConsoleTest\SQLBuilderConsoleTest\obj\Debug\netcoreapp3.1\SQLBuilderConsoleTest.AssemblyInfoInputs.cache
+F:\Projekty wlasne\GitLab\MKProject\SQLBuilderConsoleTest\SQLBuilderConsoleTest\obj\Debug\netcoreapp3.1\SQLBuilderConsoleTest.AssemblyInfo.cs
+F:\Projekty wlasne\GitLab\MKProject\SQLBuilderConsoleTest\SQLBuilderConsoleTest\obj\Debug\netcoreapp3.1\SQLBuilderConsoleTest.dll
+F:\Projekty wlasne\GitLab\MKProject\SQLBuilderConsoleTest\SQLBuilderConsoleTest\obj\Debug\netcoreapp3.1\SQLBuilderConsoleTest.pdb
+F:\Projekty wlasne\GitLab\MKProject\SQLBuilderConsoleTest\SQLBuilderConsoleTest\obj\Debug\netcoreapp3.1\SQLBuilderConsoleTest.genruntimeconfig.cache
