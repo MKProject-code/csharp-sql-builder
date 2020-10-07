@@ -11,7 +11,7 @@
         FROM
         (
                 SELECT `ContactName` AS `Contact`,`Country`
-                FROM `Customers` AS `c`
+                FROM `Customers` AS `c` WHERE `Country`='Germany'
                 UNION
                 SELECT `ContactName` AS `Contact`,`Country`
                 FROM `Suppliers` AS `s`
@@ -38,6 +38,6 @@ Use:
                         .Column("Country")
                         )
                     )
-                .GetQuery(true)
+                .GetQuery(true) // true = print beautiful formated SQL
                 );
 ```
