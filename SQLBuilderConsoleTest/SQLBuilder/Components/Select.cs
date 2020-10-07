@@ -11,6 +11,8 @@ namespace SQLBuilderConsoleTest.SQLBuilder
         private readonly Dictionary<string, string> dictionaryColumns;
         private readonly Dictionary<string, string> dictionaryTables;
         private readonly List<string> listWheres;
+        private int limitStart;
+        private int limitMax;
         private string queryBeforeUnion;
 
         internal Select()
@@ -18,6 +20,8 @@ namespace SQLBuilderConsoleTest.SQLBuilder
             this.dictionaryColumns = new Dictionary<string, string>();
             this.dictionaryTables = new Dictionary<string, string>();
             this.listWheres = new List<string>();
+            this.limitStart = -1;
+            this.limitMax = -1;
             this.queryBeforeUnion = "";
         }
         public Select Where(string column, string operator_, string value)
@@ -70,7 +74,7 @@ namespace SQLBuilderConsoleTest.SQLBuilder
             column = String.Join("`.`",columns);
             try
             {
-                this.dictionaryColumns.Add("`" + column + "`", "`" + asColumn + "`");
+                this.dictionaryColumns.Add("`" + column + "`", asColumn == null ? null : "`" + asColumn + "`");
             }
             catch (ArgumentException)
             {
@@ -114,11 +118,45 @@ namespace SQLBuilderConsoleTest.SQLBuilder
             this.queryBeforeUnion += this.Build() + " UNION ";
             this.dictionaryColumns.Clear();
             this.dictionaryTables.Clear();
+            this.limitStart = -1;
+            this.limitMax = -1;
+            return this;
+        }
+
+        public Select Limit(int limitMax)
+        {
+            this.limitMax = limitMax;
+            return this;
+        }
+        public Select Limit(int limitStart, int limitMax)
+        {
+            this.limitStart = limitStart;
+            this.limitMax = limitMax;
             return this;
         }
 
         public string Build()
         {
+            string dataTables = "";
+            foreach (KeyValuePair<string, string> entry in this.dictionaryTables)
+            {
+                if (entry.Key.Length > 0)
+                {
+                    if (dataTables.Length == 0)
+                        dataTables = entry.Key;
+                    else
+                        dataTables += "," + entry.Key;//for beauty: ", "
+
+                    if (entry.Value != null && entry.Value.Length > 0)
+                        dataTables += " AS " + entry.Value;
+                }
+            }
+
+            if (dataTables.Length == 0)
+            {
+                throw new ArgumentException("Select error -> Tables be null");
+            }
+
             string dataColumns = "";
             foreach (KeyValuePair<string, string> entry in this.dictionaryColumns)
             {
@@ -134,30 +172,19 @@ namespace SQLBuilderConsoleTest.SQLBuilder
                 }
             }
 
-            if (dataColumns.Length > 0)
+            if (dataColumns.Length == 0)
             {
-                string dataTables = "";
-                foreach (KeyValuePair<string, string> entry in this.dictionaryTables)
-                {
-                    if (entry.Key.Length > 0)
-                    {
-                        if (dataTables.Length == 0)
-                            dataTables = entry.Key;
-                        else
-                            dataTables += "," + entry.Key;//for beauty: ", "
-
-                        if (entry.Value != null && entry.Value.Length > 0)
-                            dataTables += " AS " + entry.Value;
-                    }
-                }
-
-                if(dataTables.Length > 0)
-                    return this.queryBeforeUnion + "SELECT " + dataColumns + " FROM " + dataTables;
-                else
-                    return this.queryBeforeUnion + "SELECT " + dataColumns;
+                dataColumns = "*";
             }
-            
-            throw new ArgumentException("Select be null");
+
+            string result = this.queryBeforeUnion + "SELECT " + dataColumns + " FROM " + dataTables;
+
+            if (this.limitStart > 0 && this.limitMax > 0)
+                return result + " LIMIT " + this.limitStart + "," + this.limitMax;
+            else if (this.limitMax > 0)
+                return result + " LIMIT " + this.limitMax;
+            else
+                return result;
         }
     }
 }
