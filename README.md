@@ -1,8 +1,8 @@
 # C# SQL Builder
 
-## Project on hold...
+### Project on hold...
 
-# Example usage
+## Example usage
 
             SQLBuilder.SQLBuilder builder = new SQLBuilder.SQLBuilder();
             Console.WriteLine(
