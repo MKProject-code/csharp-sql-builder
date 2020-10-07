@@ -9,6 +9,8 @@ namespace SQLBuilderConsoleTest
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+            
+            //TEST - example sql build
             SQLBuilder.SQLBuilder builder = new SQLBuilder.SQLBuilder();
             Console.WriteLine(
                 builder
