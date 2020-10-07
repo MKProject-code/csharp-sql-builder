@@ -18,34 +18,26 @@
         ) LIMIT 5
 );
 ```
-
+Use:
+```
             SQLBuilder.SQLBuilder builder = new SQLBuilder.SQLBuilder();
             Console.WriteLine(
                 builder
                 .Select(
                     new Select()
-                    .Table("Customers", "c")
-                    .Table("Suppliers", "s")
-                    .Columns(new Dictionary<string, string> {
-                        {"c.City", "CC"},
-                        {"s.City", "SC"}
-                    })
-                    .Union()
-                    .Table("Customers", "c")
-                    .Table("Suppliers", "s")
-                    .Column("c.City", "CC")
-                    .Column("s.City", "SC")
-                    .Where("xd", "=", "xd")
-                    .Where("xd", "=", "xd")
-                    .Where("xd", "=", "xd")
+                    .Limit(5)
                     .Table(
                         new Select()
                         .Table("Customers", "c")
+                        .Column("ContactName", "Contact")
+                        .Column("Country")
+                        .Where("Country", "=", "Germany") // not work now!
+                        .Union()
                         .Table("Suppliers", "s")
-                        .Column("c.City", "CC")
-                        .Column("s.City", "SC")
-                        .Where(
-                        , "t")
-                    , "a")
+                        .Column("ContactName", "Contact")
+                        .Column("Country")
+                        )
+                    )
                 .GetQuery(true)
                 );
+```
