@@ -21,8 +21,8 @@
 ### Use:
 ```
             SQLBuilder.SQLBuilder builder = new SQLBuilder.SQLBuilder();
-            Console.WriteLine(
-                builder
+            
+            string sql = builder
                 .Select(
                     new Select()
                     .Limit(5)
@@ -40,4 +40,6 @@
                     )
                 .GetQuery(true) // true = print beautiful formated SQL
                 );
+                
+            Console.WriteLine(sql);
 ```
