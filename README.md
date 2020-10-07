@@ -4,6 +4,21 @@
 
 ## Example usage
 
+### For build query: 
+`
+(
+        SELECT *
+        FROM
+        (
+                SELECT `ContactName` AS `Contact`,`Country`
+                FROM `Customers` AS `c`
+                UNION
+                SELECT `ContactName` AS `Contact`,`Country`
+                FROM `Suppliers` AS `s`
+        ) LIMIT 5
+);
+`
+
             SQLBuilder.SQLBuilder builder = new SQLBuilder.SQLBuilder();
             Console.WriteLine(
                 builder
