@@ -36,10 +36,9 @@ string sql = builder
                 .Table("Suppliers", "s")
                 .Column("s.ContactName", "Contact")
                 .Column("s.Country")
-                )
             )
-        .GetQuery(true) // true = print beautiful formated SQL
-        );
+        )
+        .GetQuery(true); // true = print beautiful formated SQL
 
 Console.WriteLine(sql);
 ```
