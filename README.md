@@ -5,7 +5,7 @@
 ## Example usage
 
 ### For build query: 
-`
+```
 (
         SELECT *
         FROM
@@ -17,7 +17,7 @@
                 FROM `Suppliers` AS `s`
         ) LIMIT 5
 );
-`
+```
 
             SQLBuilder.SQLBuilder builder = new SQLBuilder.SQLBuilder();
             Console.WriteLine(
