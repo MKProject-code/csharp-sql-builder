@@ -10,10 +10,10 @@
         SELECT *
         FROM
         (
-                SELECT `ContactName` AS `Contact`,`Country`
+                SELECT `c`.`ContactName` AS `Contact`,`c`.`Country`
                 FROM `Customers` AS `c` WHERE `Country`='Germany'
                 UNION
-                SELECT `ContactName` AS `Contact`,`Country`
+                SELECT `s`.`ContactName` AS `Contact`,`s`.`Country`
                 FROM `Suppliers` AS `s`
         ) LIMIT 5
 );
@@ -29,13 +29,13 @@
                     .Table(
                         new Select()
                         .Table("Customers", "c")
-                        .Column("ContactName", "Contact")
-                        .Column("Country")
+                        .Column("c.ContactName", "Contact")
+                        .Column("c.Country")
                         .Where("Country", "=", "Germany") // not work now!
                         .Union()
                         .Table("Suppliers", "s")
-                        .Column("ContactName", "Contact")
-                        .Column("Country")
+                        .Column("s.ContactName", "Contact")
+                        .Column("s.Country")
                         )
                     )
                 .GetQuery(true) // true = print beautiful formated SQL
