@@ -4,21 +4,7 @@
 
 ## Example usage
 
-### For build query: 
-```
-(
-        SELECT *
-        FROM
-        (
-                SELECT `c`.`ContactName` AS `Contact`,`c`.`Country`
-                FROM `Customers` AS `c` WHERE `Country`='Germany'
-                UNION
-                SELECT `s`.`ContactName` AS `Contact`,`s`.`Country`
-                FROM `Suppliers` AS `s`
-        ) LIMIT 5
-);
-```
-### Use:
+### For build query use:
 ```
 SQLBuilder.SQLBuilder builder = new SQLBuilder.SQLBuilder();
 
@@ -41,4 +27,18 @@ string sql = builder
         .GetQuery(true); // true = print beautiful formated SQL
 
 Console.WriteLine(sql);
+```
+### Result:
+```
+(
+        SELECT *
+        FROM
+        (
+                SELECT `c`.`ContactName` AS `Contact`,`c`.`Country`
+                FROM `Customers` AS `c` WHERE `Country`='Germany'
+                UNION
+                SELECT `s`.`ContactName` AS `Contact`,`s`.`Country`
+                FROM `Suppliers` AS `s`
+        ) LIMIT 5
+);
 ```
