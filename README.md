@@ -24,7 +24,7 @@ string sql = builder
                 .Column("s.Country")
             )
         )
-        .GetQuery(true); // true = print beautiful formated SQL
+        .GetQuery(true); // true = return beautiful formated SQL
 
 Console.WriteLine(sql);
 ```
