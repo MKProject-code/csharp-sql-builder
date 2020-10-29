@@ -4,7 +4,7 @@
 
 ## Example usage
 
-### For build query use:
+### Build SQL query:
 ```
 SQLBuilder.SQLBuilder builder = new SQLBuilder.SQLBuilder();
 
