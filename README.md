@@ -17,7 +17,7 @@ string sql = builder
                 .Table("Customers", "c")
                 .Column("c.ContactName", "Contact")
                 .Column("c.Country")
-                .Where("Country", "=", "Germany") // not work yet!
+                .Where("Country", "=", "Germany") // "Where" not work yet!
                 .Union()
                 .Table("Suppliers", "s")
                 .Column("s.ContactName", "Contact")
